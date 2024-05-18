@@ -13,7 +13,3 @@ def test_filter_to_dataset_dict():
     test_dict = {"source": "a good source", "dataset": expected_output}
     actual_output = filter_to_dataset_dict(dict=test_dict)
     assert actual_output == expected_output
-
-
-def test_pass():
-    pass

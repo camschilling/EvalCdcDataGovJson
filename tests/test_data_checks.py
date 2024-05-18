@@ -1,4 +1,4 @@
-from src.evalcdcdatagovjson.clean_data import get_value_from_dict_if_exists
+from src.evalcdcdatagovjson.parse_data import get_value_from_dict_if_exists
 from src.evalcdcdatagovjson.read_data import filter_to_dataset_dict, get_data_cdc_gov_json
 
 
