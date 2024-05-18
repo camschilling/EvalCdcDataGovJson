@@ -1,10 +1,10 @@
-from src.evalcdcdatagovjson.read_data import get_data_cdc_gov_json, filter_to_dataset_dict
 from src.evalcdcdatagovjson.clean_data import get_value_from_dict_if_exists
+from src.evalcdcdatagovjson.read_data import filter_to_dataset_dict, get_data_cdc_gov_json
 
 
 def test_theme_is_single_attribute():
     data = get_data_cdc_gov_json()
-    dataset = filter_to_dataset_dict(dict=data) # this is a list of dictionaries
+    dataset = filter_to_dataset_dict(dict=data)  # this is a list of dictionaries
     cnt_list = set()
     for r in dataset:
         val = get_value_from_dict_if_exists(dict=r, key="theme")
@@ -41,7 +41,7 @@ def test_theme_is_single_attribute():
 #     print(record["distribution"])
 #     print(record["accessLevel"])
 
-    
+
 # def test_view_ninth():
 #     data = get_data_cdc_gov_json()
 #     dataset = filter_to_dataset_dict(dict=data) # this is a list of dictionaries
@@ -62,12 +62,12 @@ def test_theme_is_single_attribute():
 # def test_get_keys():
 #     data = get_data_cdc_gov_json()
 #     dataset = filter_to_dataset_dict(dict=data) # this is a list of dictionaries
-    
+
 #     key_set = set()
 #     l=0
 #     for record in dataset:
 #         for k in record.keys():
 #             key_set.add(k)
 #         l += 1
-    
+
 #     print(key_set)

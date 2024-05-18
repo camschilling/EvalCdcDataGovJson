@@ -7,7 +7,7 @@ def get_value_from_dict_if_exists(dict: dict, key: str):
         return dict[key]
     else:
         return None
-    
+
 
 def get_url(record: dict):
     """Get the url for the record"""
@@ -15,7 +15,7 @@ def get_url(record: dict):
 
 
 def get_identifier(record: dict):
-    """Parses the longer URL from the record identifier """
+    """Parses the longer URL from the record identifier"""
     id_string = get_url(record=record)
     if id_string is not None:
         return id_string.rstrip("/")
@@ -30,7 +30,7 @@ def get_theme(record: dict):
 
 
 def get_publisher_attribute(record: dict, publisher_attribute_key: str):
-    """Helper function to get publisher information from a record """
+    """Helper function to get publisher information from a record"""
     record_publisher = get_value_from_dict_if_exists(dict=record, key="publisher")
     if record_publisher is not None:
         return get_value_from_dict_if_exists(dict=record_publisher, key=publisher_attribute_key)
@@ -48,17 +48,17 @@ def get_publisher_name(record: dict):
     return get_publisher_attribute(record=record, publisher_attribute_key="name")
 
 
-def get_access_level(record:dict):
+def get_access_level(record: dict):
     """
     Operation to get the access level for a given record (e.g. public, restricted)
     """
     return get_value_from_dict_if_exists(dict=record, key="accessLevel")
 
 
-def get_distribution_option_list(record:dict):
+def get_distribution_option_list(record: dict):
     """
     Operation to get the various download formats that are available for a given catalog record
-    :returns: a list of values 
+    :returns: a list of values
     """
     distribution_list = get_value_from_dict_if_exists(dict=record, key="distribution")
     media_list = list()
@@ -67,7 +67,7 @@ def get_distribution_option_list(record:dict):
     return media_list
 
 
-def compile_record_attributes(record:dict):
+def compile_record_attributes(record: dict):
     """Produces a dictionary of relevant attributes for a given record"""
     record_attributes = {
         "id": get_identifier(record=record),
@@ -76,7 +76,7 @@ def compile_record_attributes(record:dict):
         "publisher_type": get_publisher_type(record=record),
         "publisher_name": get_publisher_name(record=record),
         "access_level": get_access_level(record=record),
-        "distribution_options": get_distribution_option_list(record=record)
+        "distribution_options": get_distribution_option_list(record=record),
     }
     return record_attributes
 
