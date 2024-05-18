@@ -8,9 +8,12 @@ def build_pandas_df():
     attributes = dict()
     i = 0
     for record in dataset:
-        attributes[i] = compile_record_attributes(record=record)
+        record_dict = compile_record_attributes(record=record)
+        record_dict["record_index"] = i
+        attributes[i] = record_dict
         i += 1
     df = pd.DataFrame.from_dict(attributes, orient='index')
+    df.reset_index
     return df
 
 

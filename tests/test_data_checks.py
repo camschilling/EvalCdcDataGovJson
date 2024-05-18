@@ -42,21 +42,21 @@ def test_theme_is_single_attribute():
 #     print(record["accessLevel"])
 
 
-# def test_view_ninth():
-#     data = get_data_cdc_gov_json()
-#     dataset = filter_to_dataset_dict(dict=data) # this is a list of dictionaries
-#     record = dataset[9]
-#     id = record["identifier"]
+def test_view_twelve():
+    data = get_data_cdc_gov_json()
+    dataset = filter_to_dataset_dict(dict=data)  # this is a list of dictionaries
+    record = dataset[12]
+    id = record["identifier"]
 
-#     print("")
-#     # print(id)
-#     # print("")
-#     # print(record["distribution"])
-#     # print("")
-#     # print(record["distribution"][0])
-#     # print("")
-#     # print(record["distribution"][0]["mediaType"])
-#     print(record)
+    print("")
+    # print(id)
+    # print("")
+    # print(record["distribution"])
+    # print("")
+    # print(record["distribution"][0])
+    # print("")
+    # print(record["distribution"][0]["mediaType"])
+    print(record)
 
 
 # def test_get_keys():
