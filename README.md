@@ -17,6 +17,6 @@ execute(path="<desired path>")
 The module assumes the user has the required packages installed on their machine and that a selenium web driver for Microsoft Edge is installed. 
 
 ## Contribution
-The virtual environment 
+The virtual environment for contribution is included in the repo at `eval_cdc_data_gov_json`. Contributors should use `pre-commit install` prior to contributing.
 
 Repository adapted from https://laszlo.substack.com/p/cq4ds-python-project-from-scratch
