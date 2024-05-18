@@ -94,6 +94,7 @@ def map_header_column(df: pd.DataFrame):
     # Clean up columns
     df["record_type"] = df["record_type"].str.replace(" ", "")
     df["record_index"] = df["record_index"].str.replace(" ", "")
+    df["record_index"] = df["record_index"].astype(int)
     df["record_problem_category"] = df["record_problem_category"].str.replace(" ", "")
     return df
 
