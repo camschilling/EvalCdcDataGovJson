@@ -11,7 +11,7 @@ The `validator_detail.csv` file is detailed data obtained from an evaluation of 
 After cloning this respository, executing this module should look like running a python file such as:
 ```
 from EvalCdcDataGovJson.src.evalcdcdatagovjson.execute import execute
-execute(path="<desired path>")
+execute(path="<path to write data to>")
 ```
 
 The module assumes the user has the required packages installed on their machine and that a selenium web driver for Microsoft Edge is installed. 
