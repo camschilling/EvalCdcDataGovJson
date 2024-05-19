@@ -33,6 +33,7 @@ def mock_metadata_df():
             "theme_for_35",
             "org",
             "publisher_35",
+            "email35",
             "public",
             "type35",
             ["text/csv", "application/rdf+xml"],
@@ -44,6 +45,7 @@ def mock_metadata_df():
             "theme_for_36",
             "org",
             "publisher_36",
+            "email36",
             "public",
             "type36",
             ["text/csv", "application/rdf+xml"],
@@ -56,6 +58,7 @@ def mock_metadata_df():
         'theme',
         'publisher_type',
         'publisher_name',
+        'contact_email',
         'access_level',
         'type',
         'distribution_options',
@@ -79,6 +82,7 @@ def test_attach_identifiers_to_validator_data(mock_validator_df, mock_metadata_d
             "url_for_36",
             "theme_for_36",
             "publisher_36",
+            "email36",
         ],
         [
             "Dataset ? 36 ? somethingElse",
@@ -90,6 +94,7 @@ def test_attach_identifiers_to_validator_data(mock_validator_df, mock_metadata_d
             "url_for_36",
             "theme_for_36",
             "publisher_36",
+            "email36",
         ],
     ]
 
@@ -103,6 +108,7 @@ def test_attach_identifiers_to_validator_data(mock_validator_df, mock_metadata_d
         'url',
         'theme',
         'publisher_name',
+        'contact_email',
     ]
 
     expected_df = pd.DataFrame(expected_data, columns=expected_schema)
@@ -119,6 +125,7 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
             "theme_for_35",
             "org",
             "publisher_35",
+            "email35",
             "public",
             "type35",
             ["text/csv", "application/rdf+xml"],
@@ -131,6 +138,7 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
             "theme_for_36",
             "org",
             "publisher_36",
+            "email36",
             "public",
             "type36",
             ["text/csv", "application/rdf+xml"],
@@ -144,6 +152,7 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
         'theme',
         'publisher_type',
         'publisher_name',
+        'contact_email',
         'access_level',
         'type',
         'distribution_options',

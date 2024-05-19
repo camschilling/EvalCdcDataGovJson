@@ -124,6 +124,7 @@ def test_compile_record_attributes():
         "theme": "Public Health Surveillance",
         "publisher_type": "org:Organization",
         "publisher_name": "CDC",
+        "contact_email": "mailto:pgn6@cdc.gov",
         "access_level": "public",
         "type": "dcat:Dataset",
         "distribution_options": ["text/csv", "application/rdf+xml", "application/json", "application/xml"],

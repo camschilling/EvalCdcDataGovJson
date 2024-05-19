@@ -51,6 +51,15 @@ def get_publisher_name(record: dict):
     return get_publisher_attribute(record=record, publisher_attribute_key="name")
 
 
+def get_contact_email(record: dict):
+    """Operation to get the contact email for the dataset"""
+    contact_detail = get_value_from_dict_if_exists(dict=record, key="contactPoint")
+    if contact_detail is not None:
+        return get_value_from_dict_if_exists(dict=contact_detail, key="hasEmail")
+    else:
+        return None
+
+
 def get_access_level(record: dict):
     """
     Operation to get the access level for a given record (e.g. public, restricted)
@@ -88,6 +97,7 @@ def compile_record_attributes(record: dict):
         "theme": get_theme(record=record),
         "publisher_type": get_publisher_type(record=record),
         "publisher_name": get_publisher_name(record=record),
+        "contact_email": get_contact_email(record=record),
         "access_level": get_access_level(record=record),
         "type": get_type(record=record),
         "distribution_options": get_distribution_option_list(record=record),
