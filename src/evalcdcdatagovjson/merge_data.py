@@ -10,7 +10,7 @@ def attach_identifiers_to_validator_data(validator_df: pd.DataFrame, metadata_df
     """
     df = pd.merge(
         validator_df,
-        metadata_df[['id', 'url', 'theme', 'publisher_name', 'record_index']],
+        metadata_df[['id', 'url', 'theme', 'publisher_name', 'contact_email', 'record_index']],
         on="record_index",
         how="left",
     )
