@@ -23,6 +23,13 @@ def get_identifier(record: dict):
         return None
 
 
+def get_title(record: dict):
+    """
+    Operation to get the title of the dataset.
+    """
+    return get_value_from_dict_if_exists(dict=record, key="title")
+
+
 def get_theme(record: dict):
     """Get the theme for the record"""
     theme_list = get_value_from_dict_if_exists(dict=record, key="theme")
@@ -89,10 +96,19 @@ def get_distribution_option_list(record: dict):
         return None
 
 
+def get_methodology(record: dict):
+    """
+    Operation to get the field "describedBy" in the metadata,
+    which appears to hold methodology detail.
+    """
+    return get_value_from_dict_if_exists(dict=record, key="describedBy")
+
+
 def compile_record_attributes(record: dict):
     """Produces a dictionary of relevant attributes for a given record"""
     record_attributes = {
         "id": get_identifier(record=record),
+        "title": get_title(record=record),
         "url": get_url(record=record),
         "theme": get_theme(record=record),
         "publisher_type": get_publisher_type(record=record),
@@ -101,5 +117,6 @@ def compile_record_attributes(record: dict):
         "access_level": get_access_level(record=record),
         "type": get_type(record=record),
         "distribution_options": get_distribution_option_list(record=record),
+        "methodology": get_methodology(record=record),
     }
     return record_attributes

@@ -120,6 +120,7 @@ def test_compile_record_attributes():
     }
     expected_output = {
         "id": "29hc-w46k",
+        "title": 'Weekly Rates of Laboratory-Confirmed RSV Hospitalizations from the RSV-NET Surveillance System',
         "url": "https://data.cdc.gov/api/views/29hc-w46k",
         "theme": "Public Health Surveillance",
         "publisher_type": "org:Organization",
@@ -128,6 +129,7 @@ def test_compile_record_attributes():
         "access_level": "public",
         "type": "dcat:Dataset",
         "distribution_options": ["text/csv", "application/rdf+xml", "application/json", "application/xml"],
+        "methodology": None,
     }
     actual_ouptput = compile_record_attributes(record=record_input)
     assert expected_output == actual_ouptput
