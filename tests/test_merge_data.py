@@ -29,6 +29,7 @@ def mock_metadata_df():
     data = [
         [
             "id_for_35",
+            "title35",
             "url_for_35",
             "theme_for_35",
             "org",
@@ -37,10 +38,12 @@ def mock_metadata_df():
             "public",
             "type35",
             ["text/csv", "application/rdf+xml"],
+            None,
             35,
         ],
         [
             "id_for_36",
+            "title36",
             "url_for_36",
             "theme_for_36",
             "org",
@@ -49,11 +52,13 @@ def mock_metadata_df():
             "public",
             "type36",
             ["text/csv", "application/rdf+xml"],
+            "method36",
             36,
         ],
     ]
     columns = [
         'id',
+        'title',
         'url',
         'theme',
         'publisher_type',
@@ -62,6 +67,7 @@ def mock_metadata_df():
         'access_level',
         'type',
         'distribution_options',
+        "methodology",
         "record_index",
     ]
 
@@ -121,6 +127,7 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
     expected_data = [
         [
             "id_for_35",
+            "title35",
             "url_for_35",
             "theme_for_35",
             "org",
@@ -129,11 +136,13 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
             "public",
             "type35",
             ["text/csv", "application/rdf+xml"],
+            None,
             35,
             True,
         ],
         [
             "id_for_36",
+            "title36",
             "url_for_36",
             "theme_for_36",
             "org",
@@ -142,12 +151,14 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
             "public",
             "type36",
             ["text/csv", "application/rdf+xml"],
+            "method36",
             36,
             False,
         ],
     ]
     expected_columns = [
         'id',
+        'title',
         'url',
         'theme',
         'publisher_type',
@@ -156,8 +167,9 @@ def test_attach_metadata_is_valid_col_to_metadata(mock_validator_df, mock_metada
         'access_level',
         'type',
         'distribution_options',
-        "record_index",
-        "metadata_is_valid",
+        'methodology',
+        'record_index',
+        'metadata_is_valid',
     ]
 
     expected_df = pd.DataFrame(expected_data, columns=expected_columns)
