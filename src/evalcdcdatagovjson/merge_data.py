@@ -1,4 +1,5 @@
 from .scrape_metadata_validator import get_validation_data
+from .analysis import add_analysis_fields
 from .clean_data import build_pandas_df
 import pandas as pd
 
@@ -36,7 +37,8 @@ def produce_data():
     Compiles real data at detail level for analysis
     """
     validator_df = get_validation_data()
-    metadata_df = build_pandas_df()
+    metadata_df_interim = build_pandas_df()
+    metadata_df = add_analysis_fields(df=metadata_df_interim)
 
     return {
         "validator_detail": attach_identifiers_to_validator_data(validator_df=validator_df, metadata_df=metadata_df),

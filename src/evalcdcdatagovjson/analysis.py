@@ -91,3 +91,60 @@ def compute_distribution_is_open_machine_readable(df: pd.DataFrame) -> pd.DataFr
     # Join back to original df
     df = pd.merge(df, df_grouped, on="record_index", how="left")
     return df
+
+
+def get_org_theme_list(df: pd.DataFrame) -> List[str]:
+    """
+    Helper function for debugging :func:eval_theme()
+    Run tests/test_analysis.py::test_org_theme_list to view the unique values in the theme column
+    """
+    return list(df["theme"].unique()).sort()
+
+
+def eval_theme(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Evaluates whether the theme column is a valid value
+    Valid values are not null and are not organizations
+    """
+    org_theme_list = [
+        "National Center for Health Statistics",
+        "National Center for Immunization and Respiratory Diseases",
+        "National Center for HIV, Viral Hepatitis, STD, and TB Prevention",
+        "NNDSS",
+        "NCHS",
+    ]
+
+    df["theme_is_valid"] = (~df["theme"].isin(org_theme_list)) & (df["theme"].notnull())
+    return df
+
+
+def eval_methodology(df: pd.DataFrame) -> pd.DataFrame:
+    """Evaluates whether the methodology field is null or not"""
+    df["methodology_is_present"] = (df["methodology"].notnull()) & (df["methodology"].str.strip() != "")
+    return df
+
+
+def compute_is_fair_proxy(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Evaluates whether the following fields are true. If all attributes true, then returns True.
+    df["methodology_is_present"]
+    df["theme_is_valid"]
+    df["distribution_is_open_machine_readable"]
+    df["metadata_is_valid"]
+    """
+    df["is_fair_proxy"] = (
+        (df["metadata_is_valid"] == True)
+        & (df["distribution_is_open_machine_readable"] == True)
+        & (df["theme_is_valid"] == True)
+        & (df["methodology_is_present"] == True)
+    )
+    return df
+
+
+def add_analysis_fields(df: pd.DataFrame) -> pd.DataFrame:
+    df = compute_distribution_is_open_machine_readable(df=df)
+    df = eval_theme(df=df)
+    df = eval_methodology(df=df)
+    df = compute_is_fair_proxy(df=df)
+
+    return df
