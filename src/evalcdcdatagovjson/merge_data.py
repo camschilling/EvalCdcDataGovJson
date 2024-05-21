@@ -37,10 +37,17 @@ def produce_data():
     Compiles real data at detail level for analysis
     """
     validator_df = get_validation_data()
-    metadata_df_interim = build_pandas_df()
-    metadata_df = add_analysis_fields(df=metadata_df_interim)
+    metadata_df_initial = build_pandas_df()
+
+    validator_detail = attach_identifiers_to_validator_data(validator_df=validator_df, metadata_df=metadata_df_initial)
+
+    metadata_df_interim = attach_metadata_is_valid_col_to_metadata(
+        validator_df=validator_df, metadata_df=metadata_df_initial
+    )
+
+    metadata_detail = add_analysis_fields(df=metadata_df_interim)
 
     return {
-        "validator_detail": attach_identifiers_to_validator_data(validator_df=validator_df, metadata_df=metadata_df),
-        "metadata_detail": attach_metadata_is_valid_col_to_metadata(validator_df=validator_df, metadata_df=metadata_df),
+        "validator_detail": validator_detail,
+        "metadata_detail": metadata_detail,
     }
