@@ -10,6 +10,8 @@ The `validator_detail.csv` file is detailed data obtained from an evaluation (co
 
 The `summary.csv` file is a summary of relevant attributes from the `metadetail.csv` file and is an optional output file.
 
+**Disclaimer:** All metrics produced are to be considered proxies and should be refined for use as working operational definitions.
+
 ## Execution
 After cloning this respository, executing this module should look like running a python file such as:
 ```
@@ -18,7 +20,7 @@ execute(path="<path to write data to>", include_summary = True)
 ```
 
 The module assumes the user has the required packages installed on their machine and that a selenium web driver for Microsoft Edge is installed.
-The `include_summary` parameter is optionalo and default is `True`.
+The `include_summary` parameter is optional and default is `True`.
 
 ## Contribution
 The virtual environment for contribution is included in the repo at `eval_cdc_data_gov_json`. Contributors should use `pre-commit install` prior to contributing. Contributors should test module using `poetry run pytest`.
