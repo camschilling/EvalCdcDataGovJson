@@ -1,7 +1,7 @@
 # Evaluating data.cdc.gov
 This modules aims to capture and evaluate metrics pertaining to whether the data meets certain data principles.
 
-This module produces 2 analysis-ready .csv files for evaluating certain metrics.
+This module produces 2 analysis-ready .csv files for evaluating certain metrics and produces an optional summary file (also a .csv).
 
 The `metadata_detail.csv` file is metadata regarding datasets on data.cdc.gov. This metadata has been sourced from https://data.cdc.gov/data.json alongside an indicator regarding adherence to federal metadata standards sourced from https://catalog.data.gov/dcat-us/validator. Columns produced are: [`id`, `url`, `theme`, `publisher_type`, `publisher_name`, `contact_email`, `access_level`, `type`, `distribution_options`, `record_index`, `metadata_is_valid`, `distribution_is_open_machine_readable`, `theme_is_valid`, `methodology_is_present`, `is_fair_proxy`
 ]
